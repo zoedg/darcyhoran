@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARCY HORAN | HOME</title>
+    <link rel="icon" type="image/png" href="/images/DHLOGO_FAVICON.png"/>
+    <link href="//solrainha.github.io/honeybee/honeybee.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,300;1,500&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="main-outter">
+
+        <div class="side-links">
+            <a href='/pages/index.html' id='home-btn' title='home' aria-current='page'>
+                <i class='material-icons-outlined'>home</i>
+            </a>
+            <a href='/pages/books.html' id='books-btn' title='books'>
+                <i class='material-icons-outlined'>menu_book</i>
+            </a>
+            <a href='/pages/press.html' id='press-btn' title='press'>
+                <i class='material-icons-outlined'>create</i>
+            </a>
+            <button id='dark-on' title='dark mode'>
+                <i id='night-icon' class='material-icons-outlined'>nightlight</i>
+            </button>
+            <button id='font-increase' title='increase font'>
+                <i class='material-icons-outlined'>format_size</i>
+            </button>
+        </div>
+
+        <div class="main-inside">
+            <div class="head-flex">
+                <div class="head-type">
+                    <h3><b>not</b> a new york times best selling author</h3>
+                    <h1>darcy horan</h1>
+                </div>
+                <a href='/'><div class="newest-card" data-tilt data-tilt-scale="1.1">
+                    <img src='/images/SV16_mockup_noshadow_SMALL.png' id='newest-img'>
+                    <div id='newest-banner'>
+                        <span class='newest-t1'>
+                            <x>newest release</x>
+                        </span>
+                        <span class='newest-t2'>
+                            read more
+                        </span>
+                    </div>
+                </div></a> 
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+
+    <script>
+		// yunos dark mode
+		// http://thecodebox.jcink.net/index.php?showuser=1
+
+        var icon = document.getElementById('night-icon');
+		
+		if (localStorage['dark_mode']) {
+		 if (Number(localStorage['dark_mode']) == 1) {
+		$('BODY').addClass('dark_mode');
+        icon.innerText = 'wb_sunny';
+		 } else {
+          $('BODY').removeClass('dark_mode');
+          icon.innerText = 'nightlight';
+		 }
+		} else {
+		  localStorage['dark_mode'] = 0;
+          $('BODY').removeClass('dark_mode');
+          icon.innerText = 'nightlight';
+		}
+		$('BODY').show();
+		$('#dark-on').on('click', function(){
+		  if (Number(localStorage['dark_mode']) == 0) {
+		      localStorage['dark_mode'] = 1;
+		$('BODY').addClass('dark_mode');
+        icon.innerText = 'wb_sunny';
+		  } else {
+		      localStorage['dark_mode'] = 0;
+        $('BODY').removeClass('dark_mode');
+        icon.innerText = 'nightlight';
+		 }
+		});
+
+		// yunos dark mode again, but for font size toggling
+		// http://thecodebox.jcink.net/index.php?showuser=1
+
+		if (localStorage['increase_font']) {
+		 if (Number(localStorage['increase_font']) == 1) {
+		$('BODY').addClass('increase_font');
+		 } else {
+		  $('BODY').removeClass('increase_font');
+		 }
+		} else {
+		  localStorage['increase_font'] = 0;
+		  $('BODY').removeClass('increase_font');
+		}
+		$('BODY').show();
+		$('#font-increase').on('click', function(){
+		  if (Number(localStorage['increase_font']) == 0) {
+		      localStorage['increase_font'] = 1;
+		$('BODY').addClass('increase_font');
+		  } else {
+		      localStorage['increase_font'] = 0;
+		$('BODY').removeClass('increase_font');
+		 }
+		});
+	</script>
+
+
+    <!-- https://github.com/gijsroge/tilt.js -->
+    <script src="https://unpkg.com/tilt.js@1.1.21/dest/tilt.jquery.min.js"></script>
+</body>
+</html>
